@@ -32,8 +32,10 @@ jobs:
       - name: Deploy to Cloud Functions
         run: |
           gcloud functions deploy ${{ env.FUNC_NAME }} \
+            --gen2 \
             --runtime nodejs20 \
             --trigger-http \
             --allow-unauthenticated \
             --source backend \
+            --entry-point=learnAction  \
             --region ${{ env.REGION }}
