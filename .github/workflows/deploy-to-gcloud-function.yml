@@ -38,4 +38,5 @@ jobs:
             --allow-unauthenticated \
             --source backend \
             --entry-point=learnAction  \
-            --region ${{ env.REGION }}
+            --region ${{ env.REGION }} \
+            --memory=512MB
