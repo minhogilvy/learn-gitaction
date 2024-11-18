@@ -17,43 +17,6 @@ const patientsModule = process.env.PATIENTS_MODULE
 const dentistsModule = process.env.DENTISTS_MODULE
 const cors = require('cors')({ origin: true })
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccountPath),
-  storageBucket: 'stag-colpal-private'
-})
-
-function getAccessToken () {
-  return admin.credential
-    .applicationDefault()
-    .getAccessToken()
-    .then(accessToken => {
-      return accessToken.access_token
-    })
-    .catch(err => {
-      console.error('Unable to get access token')
-      console.error(err)
-    })
-}
-
-const db = admin.firestore()
 module.exports = {
-  serviceAccountPath,
-  db,
-  admin,
-  vertextAPIServiceAccountPath,
-  getAccessToken,
-  projectId,
-  publisher,
-  bucketName,
-  draftCollectionFolder,
-  imagesCollectionFolder,
-  imagesCollectionModule,
-  auditLogsModule,
-  patientsModule,
-  dentistsModule,
-  teethFolder,
-  multiModel,
-  region,
-  apiKey,
   cors
 }
