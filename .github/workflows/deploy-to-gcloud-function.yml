@@ -39,5 +39,5 @@ jobs:
             --source backend \
             --entry-point=learnAction  \
             --region ${{ env.REGION }} \
-            --memory=512MB
+            --memory=512MB \
             --timeout=540s
