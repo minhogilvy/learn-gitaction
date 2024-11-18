@@ -24,13 +24,10 @@ jobs:
           project_id: '${{ env.PROJECT_ID }}'
           service_account_key: ${{ secrets.GCP_SA_KEY }}
 
-      - name: Debug GCP Secret
-        run: echo "${{ secrets.GCP_SA_KEY }}"
-
-      - name: Authenticate to Google Cloud
-        run: |
-          echo "${{ secrets.GCP_SA_KEY }}" > ${HOME}/gcp-key.json
-          gcloud auth activate-service-account --key-file=${HOME}/gcp-key.json
+      - name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
 
       - name: Deploy to Cloud Functions
         run: |
