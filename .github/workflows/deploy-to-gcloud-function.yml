@@ -40,4 +40,4 @@ jobs:
             --entry-point=learnAction  \
             --region ${{ env.REGION }} \
             --memory=512MB \
-            --timeout=540s
+            --timeout=600s
