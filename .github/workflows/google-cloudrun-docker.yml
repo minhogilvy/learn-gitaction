@@ -36,9 +36,9 @@ on:
 
 env:
   PROJECT_ID: 'vt-gcp-sandbox'
-  REGION: 'asia-southeast1'
+  REGION: 'us-east4'
   SERVICE: 'learn-gitaction-app'
-  REPO_NAME: 'colgate-latam-repo'
+  REPO_NAME: 'gcf-artifacts'
 
 jobs:
   deploy:
