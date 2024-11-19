@@ -137,31 +137,20 @@ Here’s a step-by-step guide to configure the GitHub Actions workflow for deplo
 
 1. **Initialize Firebase in Your Project**:
    - Open your terminal and navigate to your project directory.
-   - Run the command:
-     ```bash
-     firebase init hosting
-     ```
+   - Run the command: `firebase init hosting`
    - Follow the prompts to set up Firebase Hosting, selecting your newly created project.
 
 ### Step 3: Generate Firebase Token
 
 1. **Install Firebase CLI**:
    - If you haven't already, install Firebase CLI globally:
-     ```bash
-     npm install -g firebase-tools
-     ```
+     `npm install -g firebase-tools`
 
 2. **Login to Firebase**:
-   - Run the command:
-     ```bash
-     firebase login
-     ```
+   - Run the command: `firebase login`
 
 3. **Generate a Token**:
-   - After logging in, generate a token with:
-     ```bash
-     firebase login:ci
-     ```
+   - After logging in, generate a token with: `firebase login:ci`
    - Copy the generated token; you will need it for GitHub Secrets.
 
 ### Step 4: Add Firebase Token to GitHub Secrets
