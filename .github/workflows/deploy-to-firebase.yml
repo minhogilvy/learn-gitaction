@@ -26,14 +26,13 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install dependencies and build
+        working-directory: frontend
         run: |
           npm install
-
-      - name: Build the project
-        run: |
-          npm run build
+          npm run build  # Adjust this command based on your build process
 
       - name: Deploy to Firebase Hosting
+        working-directory: frontend
         run: |
           firebase deploy --project ${{ env.FIREBASE_PROJECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }} --only hosting
