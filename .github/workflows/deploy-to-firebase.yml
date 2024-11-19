@@ -1,0 +1,39 @@
+# This workflow build and push a content to Firebase hosting
+# and deploy it on firbase hosting when a commit is pushed to the "frontend"
+# branch.
+
+name: Build and Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - 'frontend'  # Trigger on pushes to the frontend branch
+
+env:
+  FIREBASE_PROJECT_ID: 'learn-git-action'  # Replace with your Firebase project ID
+  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}  # Store your Firebase token in GitHub Secrets
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Build the project
+        run: |
+          npm run build
+
+      - name: Deploy to Firebase Hosting
+        run: |
+          firebase deploy --project ${{ env.FIREBASE_PROJECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }} --only hosting

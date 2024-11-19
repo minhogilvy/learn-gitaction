@@ -1,0 +1,19 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_b_72_1964)">
+<rect width="40" height="40" rx="20" fill="white" fill-opacity="0.25"/>
+<mask id="mask0_72_1964" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="24" height="24">
+<rect x="8" y="8" width="24" height="24" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_72_1964)">
+<path d="M17.0899 17C17.325 16.3317 17.789 15.7681 18.3999 15.4091C19.0107 15.0502 19.7288 14.9189 20.4271 15.0387C21.1254 15.1585 21.7587 15.5215 22.215 16.0635C22.6712 16.6055 22.921 17.2915 22.9199 18C22.9199 20 19.9199 21 19.9199 21M19.9999 25H20.0099M29.9999 20C29.9999 25.5228 25.5227 30 19.9999 30C14.477 30 9.99988 25.5228 9.99988 20C9.99988 14.4771 14.477 10 19.9999 10C25.5227 10 29.9999 14.4771 29.9999 20Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_b_72_1964" x="-10" y="-10" width="60" height="60" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="5"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_72_1964"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_72_1964" result="shape"/>
+</filter>
+</defs>
+</svg>

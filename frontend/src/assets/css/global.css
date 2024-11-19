@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  font-family: ColgateReady, Arial, Helvetica, sans-serif;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.bg-rotate-indicator {
+  --width: 100%;
+  --blockSize: calc((var(--width) - 1px) / 4);
+  --stepSize: calc(var(--blockSize) / 10);
+  background: repeating-linear-gradient(to right, 
+  #ffffff calc(0 * var(--stepSize)),	#ffffff calc(0 * var(--stepSize) + 1px),	transparent calc(0 * var(--stepSize) + 1px),	transparent calc(1 * var(--stepSize)),
+  #717171 calc(1 * var(--stepSize)),	#717171 calc(1 * var(--stepSize) + 1px),	transparent calc(1 * var(--stepSize) + 1px),	transparent calc(2 * var(--stepSize)),
+  #717171 calc(2 * var(--stepSize)),	#717171 calc(2 * var(--stepSize) + 1px),	transparent calc(2 * var(--stepSize) + 1px),	transparent calc(3 * var(--stepSize)),
+  #717171 calc(3 * var(--stepSize)),	#717171 calc(3 * var(--stepSize) + 1px),	transparent calc(3 * var(--stepSize) + 1px),	transparent calc(4 * var(--stepSize)),
+  #717171 calc(4 * var(--stepSize)),	#717171 calc(4 * var(--stepSize) + 1px),	transparent calc(4 * var(--stepSize) + 1px),	transparent calc(5 * var(--stepSize)),
+  #717171 calc(5 * var(--stepSize)),	#717171 calc(5 * var(--stepSize) + 1px),	transparent calc(5 * var(--stepSize) + 1px),	transparent calc(6 * var(--stepSize)),
+  #717171 calc(6 * var(--stepSize)),	#717171 calc(6 * var(--stepSize) + 1px),	transparent calc(6 * var(--stepSize) + 1px),	transparent calc(7 * var(--stepSize)),
+  #717171 calc(7 * var(--stepSize)),	#717171 calc(7 * var(--stepSize) + 1px),	transparent calc(7 * var(--stepSize) + 1px),	transparent calc(8 * var(--stepSize)),
+  #717171 calc(8 * var(--stepSize)),	#717171 calc(8 * var(--stepSize) + 1px),	transparent calc(8 * var(--stepSize) + 1px),	transparent calc(9 * var(--stepSize)),
+  #717171 calc(9 * var(--stepSize)),	#717171 calc(9 * var(--stepSize) + 1px),	transparent calc(9 * var(--stepSize) + 1px),	transparent calc(10 * var(--stepSize))
+  );
+  background-size: calc(--blockSize - 1px) 100%;
+}
+.bg-rotate-indicator-verticle {
+  --width: 100%;
+  --blockSize: calc((var(--width) - 1px) / 4);
+  --stepSize: calc(var(--blockSize) / 10);
+  background: repeating-linear-gradient(to bottom, 
+  #ffffff calc(0 * var(--stepSize)),	#ffffff calc(0 * var(--stepSize) + 1px),	transparent calc(0 * var(--stepSize) + 1px),	transparent calc(1 * var(--stepSize)),
+  #717171 calc(1 * var(--stepSize)),	#717171 calc(1 * var(--stepSize) + 1px),	transparent calc(1 * var(--stepSize) + 1px),	transparent calc(2 * var(--stepSize)),
+  #717171 calc(2 * var(--stepSize)),	#717171 calc(2 * var(--stepSize) + 1px),	transparent calc(2 * var(--stepSize) + 1px),	transparent calc(3 * var(--stepSize)),
+  #717171 calc(3 * var(--stepSize)),	#717171 calc(3 * var(--stepSize) + 1px),	transparent calc(3 * var(--stepSize) + 1px),	transparent calc(4 * var(--stepSize)),
+  #717171 calc(4 * var(--stepSize)),	#717171 calc(4 * var(--stepSize) + 1px),	transparent calc(4 * var(--stepSize) + 1px),	transparent calc(5 * var(--stepSize)),
+  #717171 calc(5 * var(--stepSize)),	#717171 calc(5 * var(--stepSize) + 1px),	transparent calc(5 * var(--stepSize) + 1px),	transparent calc(6 * var(--stepSize)),
+  #717171 calc(6 * var(--stepSize)),	#717171 calc(6 * var(--stepSize) + 1px),	transparent calc(6 * var(--stepSize) + 1px),	transparent calc(7 * var(--stepSize)),
+  #717171 calc(7 * var(--stepSize)),	#717171 calc(7 * var(--stepSize) + 1px),	transparent calc(7 * var(--stepSize) + 1px),	transparent calc(8 * var(--stepSize)),
+  #717171 calc(8 * var(--stepSize)),	#717171 calc(8 * var(--stepSize) + 1px),	transparent calc(8 * var(--stepSize) + 1px),	transparent calc(9 * var(--stepSize)),
+  #717171 calc(9 * var(--stepSize)),	#717171 calc(9 * var(--stepSize) + 1px),	transparent calc(9 * var(--stepSize) + 1px),	transparent calc(10 * var(--stepSize))
+  );
+  background-size: calc(--blockSize - 1px) 100%;
+}
+
+.scan-grid {
+  --block-size: 50px;
+  background: 
+    repeating-linear-gradient(to right,rgba(255,254,197,0.2) 0, rgba(255,254,197,0.2) 1px, transparent 1px, transparent var(--block-size)), 
+    repeating-linear-gradient(to bottom,rgba(255,254,197,0.2) 0, rgba(255,254,197,0.2) 1px, transparent 1px, transparent var(--block-size)),
+    radial-gradient(circle at top 1px left 1px, rgba(255,254,197,0.4) 1px, rgba(255,254,197,0.4) 1px, transparent 1px),
+    radial-gradient(circle at top 1px left calc(var(--block-size) - 1px), rgba(255,254,197,0.4) 1px, rgba(255,254,197,0.4) 1px, transparent 1px),
+    radial-gradient(circle at top calc(var(--block-size) - 1px) left 1px, rgba(255,254,197,0.4) 1px, rgba(255,254,197,0.4) 1px, transparent 1px),
+    radial-gradient(circle at top calc(var(--block-size) - 1px) left calc(var(--block-size) - 1px), rgba(255,254,197,0.4) 1px, rgba(255,254,197,0.4) 1px, transparent 1px); 
+  background-size: var(--block-size) var(--block-size);
+  background-position: 50% 50%;
+  border-radius: 100%;
+  overflow: hidden;
+  mask-image: radial-gradient(circle at center, #000000 0%, transparent 100%);
+  mix-blend-mode: plus-lighter;
+  /* background-position: calc(var(--block-size)) calc(var(--block-size)); */
+}
+
+.scan-decorate {
+  --block-size: 50px;
+  background-size: calc(var(--block-size) * 4) calc(var(--block-size) * 4);
+  background-position: 50% 50%;
+  border-radius: 100%;
+  overflow: hidden;
+  mask-image: radial-gradient(circle at center, #000000 0%, transparent 100%);
+  mix-blend-mode: plus-lighter;
+}
+
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 36%;
+  background: linear-gradient(to bottom, rgba(255,254,197,0.3) 0%, transparent 100%);
+  animation: scan 3s linear infinite;
+  mix-blend-mode: plus-lighter;
+}
+
+@keyframes scan {
+  0% {
+    top: 110%;
+    background: linear-gradient(to bottom, rgba(255,254,197,0.3) 0%, transparent 100%);
+  }
+  50% {
+    top: -40%;
+    background: linear-gradient(to bottom, rgba(255,254,197,0.3) 0%, transparent 100%);
+  }
+  51% {
+    top: -40%;
+    background: linear-gradient(to top, rgba(255,254,197,0.3) 0%, transparent 100%);
+  }
+  100% {
+    top: 110%;
+    background: linear-gradient(to top, rgba(255,254,197,0.3) 0%, transparent 100%);
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px #23232329;
+}

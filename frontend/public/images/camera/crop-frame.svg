@@ -1,0 +1,11 @@
+<svg width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.26184 336.682V318.57H3.05176e-05V340.944H22.3745V336.682H4.26184Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.26184 4.2618L22.3745 4.26181L22.3745 0L3.51667e-05 -9.78019e-07L3.41887e-05 22.3745L4.26184 22.3745L4.26184 4.2618Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M335.738 4.26184L335.738 22.3745L340 22.3745L340 3.51667e-05L317.626 3.32107e-05L317.626 4.26184L335.738 4.26184Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M335.738 335.738L335.738 317.625L340 317.625L340 340L317.626 340L317.626 335.738L335.738 335.738Z" fill="white"/>
+<rect x="157.808" y="335.738" width="22.3745" height="4.26181" fill="white"/>
+<rect x="157.808" width="22.3745" height="4.26181" fill="white"/>
+<rect x="2.78467" y="158.341" width="22.3745" height="4.26181" transform="rotate(90 2.78467 158.341)" fill="white"/>
+<rect x="339.467" y="159.285" width="22.3745" height="4.26181" transform="rotate(90 339.467 159.285)" fill="white"/>
+<rect x="0.472253" y="0.472222" width="339.056" height="339.056" stroke="white" stroke-width="0.944444"/>
+</svg>

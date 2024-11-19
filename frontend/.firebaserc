@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "vt-gcp-sandbox"
+  },
+  "targets": {
+    "vt-gcp-sandbox": {
+      "hosting": {
+        "app": [
+          "image-collection-dev"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
