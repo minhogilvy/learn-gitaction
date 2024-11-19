@@ -1,3 +1,58 @@
+# Here’s a step-by-step guide to configure the GitHub Actions workflow for deploying your app to Google Cloud Functions when a commit is pushed to the "main" branch.
+
+# ### Step 1: Set Up Your Google Cloud Project
+
+# 1. Go to Google Cloud Console:
+#    - Visit [Google Cloud Console](https://console.cloud.google.com/).
+
+# 2. Create a New Project:
+#    - Click on the project dropdown and select "New Project".
+#    - Enter a name for your project and note down the project ID (e.g., `vt-gcp-sandbox`).
+
+# 3. Enable Cloud Functions API:
+#    - In the left sidebar, navigate to "APIs & Services" > "Library".
+#    - Search for "Cloud Functions API" and enable it.
+
+# ### Step 2: Create a Service Account
+
+# 1. Navigate to IAM & Admin:
+#    - In the left sidebar, go to "IAM & Admin" > "Service Accounts".
+
+# 2. Create a Service Account:
+#    - Click on "Create Service Account".
+#    - Provide a name and description, then click "Create".
+
+# 3. Grant Permissions:
+#    - Assign the role `Cloud Functions Admin` and `Viewer`.
+#    - Click "Continue" and then "Done".
+
+# 4. Generate a Key:
+#    - Find the service account you just created, click on it, and go to the "Keys" tab.
+#    - Click "Add Key" > "JSON". This will download a JSON file containing your service account key.
+
+# ### Step 3: Add Service Account Key to GitHub Secrets
+
+# 1. Go to Your GitHub Repository:
+#    - Navigate to your repository on GitHub.
+
+# 2. Access Settings:
+#    - Click on the "Settings" tab.
+
+# 3. Add a New Secret:
+#    - In the left sidebar, click on "Secrets and variables" > "Actions".
+#    - Click on "New repository secret".
+#    - Name the secret `GCP_SA_KEY` and paste the contents of the downloaded JSON file.
+
+# ### Step 4: Create the GitHub Actions Workflow
+
+# 1. Create a Workflow File**:
+#    - In your project repository, create a directory called `.github/workflows`.
+#    - Inside this directory, create a file named `deploy-to-gcloud-function.yml`.
+
+# 2. Add the Workflow Configuration:
+#    - Copy and paste the following YAML configuration into `deploy-to-gcloud-function.yml`:
+
+
 name: Deploy to Google Cloud Functions
 
 on:
