@@ -1,12 +1,12 @@
 {
   "projects": {
-    "default": "vt-gcp-sandbox"
+    "default": "learn-git-action"
   },
   "targets": {
-    "vt-gcp-sandbox": {
+    "learn-git-action": {
       "hosting": {
         "app": [
-          "image-collection-dev"
+          "learn-git-action"
         ]
       }
     }
