@@ -1,0 +1,77 @@
+from fastapi import APIRouter
+
+router = APIRouter()
+
+@app.get("/webhooks/inbound")
+async def webhooks_inbound_whatsapp(req: Request):
+
+  query_params = req.query_params
+  mode = query_params.get("hub.mode")
+  token = query_params.get("hub.verify_token")
+  challenge = query_params.get("hub.challenge")
+
+  # check the mode and token sent are correct
+  if mode == "subscribe" and token == "1234":
+    # respond with 200 OK and challenge token from the request
+    return int(challenge)
+  else:
+    # respond with '403 Forbidden' if verify tokens do not match
+    return APIResponse(ode=status.HTTP_403_FORBIDDEN)
+
+
+@app.post("/webhooks/inbound", response_model=APIResponse)
+async def webhooks_inbound_whatsapp(req: Request,
+                                    background_tasks: BackgroundTasks):
+
+  data = await req.json()
+  print("Body: "+ str(data))
+
+
+  # Add the processing task to the background
+  background_tasks.add_task(process_inbound_message, data)
+
+  # Return the response immediately
+  return APIResponse(
+    code=status.HTTP_200_OK,
+    message='SUBMITED_SUCCESS',
+    data={}
+  )
+
+
+
+def process_inbound_message(data):
+  try:
+    parsed_data = asyncio.run(JsonParser.parse_json(data))
+    print("res_data: "+ str(parsed_data))
+    if parsed_data:
+      from_number = parsed_data.get("from")
+      text = parsed_data.get("text")
+      message_type = parsed_data.get("type")
+      phone_number_exists = check_number_phone(from_number)
+
+      if (message_type == 'text') and (text.lower() == 'hi'):
+        db.update_next_step(from_number, {"next_step": Steps.LANGUAGE_SELECTION.name})
+      elif (message_type == 'text') and (text.lower() == 'hello'):
+        message_template.send_main_menu(from_number)
+        return
+
+      if phone_number_exists and message_type == "reply" and "reply" in parsed_data:
+        if parsed_data["reply"]["id"] == "22":
+          db.update_next_step(from_number,
+                              {"next_step": Steps.LANGUAGE_SELECTION.name})
+      next_step_data = db.get_next_step(from_number)
+      next_step = getattr(Steps, next_step_data)
+      if not next_step:
+        return
+      handleWhatsAPP.handle_step(from_number, parsed_data, next_step_data, message_template)
+    else:
+      print("No messages found in the parsed data.")
+  except Exception as e:
+    print(e)
+
+
+def check_number_phone(from_number):
+  phone_number_exists = db.check_phone_number_exist(from_number)
+  if not phone_number_exists:
+    db.save_phone_number(from_number, Steps.LANGUAGE_SELECTION.name)
+  return phone_number_exists

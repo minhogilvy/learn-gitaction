@@ -1,5 +1,5 @@
 # This workflow build and push a Docker container to Google Artifact Registry
-# and deploy it on Cloud Run when a commit is pushed to the "main"
+# and deploy it on Cloud Run when a commit is pushed to the "cloudrun"
 # branch.
 #
 # To configure this workflow:
@@ -37,7 +37,7 @@ on:
 env:
   PROJECT_ID: 'vt-gcp-sandbox'
   REGION: 'asia-southeast1'
-  SERVICE: 'my-learn-gitaction'
+  SERVICE: 'learn-gitaction-app'
   WORKLOAD_IDENTITY_PROVIDER: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
 
 jobs:
@@ -69,7 +69,7 @@ jobs:
       - name: 'Build and Push Container'
         run: |-
           DOCKER_TAG="$${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
-          docker build --tag "${DOCKER_TAG}" .
+          docker build --tag "${DOCKER_TAG}" ./cloudrun
           docker push "${DOCKER_TAG}"
       - name: 'Deploy to Cloud Run'
 

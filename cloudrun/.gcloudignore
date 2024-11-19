@@ -1,0 +1,26 @@
+#!include:.gitignore
+.gcloudignore
+# If you would like to upload your .git directory, .gitignore file or files
+# from your .gitignore file, remove the corresponding line
+# below:
+.git
+.gitignore
+compose/
+model/
+terraform/
+tests/
+poetry.lock
+Makefile
+Dockerfile.worker
+Dockerfile-example
+Dockerfile
+requirements.prod.txt
+requirements.armd.txt
+requirements.dev.txt
+
+## Except files we want
+!.dockerignore
+!app/**
+!requirements.txt
+!keys/**
+!main.py
